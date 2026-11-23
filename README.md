@@ -1,49 +1,62 @@
-# Cloud Foundations Masterclass
+# Cloud Foundations Masterclass ☁️
 
-A practical, multi-cloud learning repository covering enterprise cloud foundations, landing zones, governance, security, identity, networking, automation, resilience and operations.
+**Beyond the basics: from cloud adoption frameworks to an end-to-end healthcare enterprise architecture.**
 
-## Platforms covered
+This repository explains what cloud foundations and landing zones are, why enterprises need them, how the major cloud providers approach them, and how those foundations support a real-world-style enterprise design.
 
-- **Microsoft Azure:** Cloud Adoption Framework (CAF) and Azure Landing Zones
-- **Amazon Web Services:** AWS Cloud Adoption Framework (AWS CAF), AWS Control Tower and Landing Zone Accelerator (LZA)
-- **Google Cloud:** Foundation Fabric FAST and Enterprise Foundations
-- **Oracle Cloud Infrastructure:** OCI Cloud Adoption Framework and Core Landing Zone
+> **Case-study notice:** The healthcare software provider used throughout this repository is entirely hypothetical. The architecture is an educational target-state reference, not a representation of any real company's internal systems or a production-certified solution.
 
-## What you will learn
+## The four cloud platforms
 
-This masterclass moves beyond framework definitions and connects them to enterprise architecture and implementation decisions:
+| Platform | Adoption framework | Landing-zone / foundation approach |
+|---|---|---|
+| Microsoft Azure | Cloud Adoption Framework (CAF) | Azure Landing Zones |
+| Amazon Web Services | AWS CAF | AWS Control Tower + Landing Zone Accelerator (LZA) |
+| Google Cloud | Google Cloud adoption guidance | Enterprise Foundations + Cloud Foundation Fabric FAST |
+| Oracle Cloud Infrastructure | OCI CAF | OCI Core Landing Zone |
 
-1. What a cloud landing zone is and why enterprises need one.
-2. How cloud adoption frameworks guide strategy, governance and operating models.
-3. How to structure identity, network, security, management and platform services.
-4. How TOGAF concepts can support architecture governance and traceability.
-5. How enterprise systems such as Active Directory, Entra ID, SAP and Workday fit into a wider architecture.
-6. How to approach healthcare integration, including EHR, HL7, FHIR and DICOM.
-7. How Terraform and automation support repeatable infrastructure delivery.
-8. How to design for availability, disaster recovery, security operations and FinOps.
+## The practical enterprise example
 
-## Learning scenario
+The masterclass applies the cloud foundations to a hypothetical global healthcare software provider that builds and operates a multi-tenant Electronic Health Record (EHR) platform for hospitals.
 
-The examples use a **hypothetical healthcare software provider**. The scenario is educational and does not represent a real company's internal architecture or a vendor reference implementation.
+The end-to-end design covers:
 
-## Start here
+- Corporate enterprise architecture: Workday HR, IGA, Microsoft Entra ID, optional Active Directory Domain Services and SAP S/4HANA.
+- Hospital clinician identity federation and separate patient CIAM.
+- Shared SaaS control plane and tenant-isolated clinical data plane.
+- EHR application services, FHIR APIs, patient identity / MPI integration and clinical data stores.
+- Hospital integration with LIS, RIS / PACS, pharmacy, HIE and partner systems using HL7 v2, FHIR, DICOM and DICOMweb.
+- Network zones, hybrid connectivity, DNS, ingress / egress and segmentation.
+- Security, privacy, data governance, clinical safety and audit.
+- Terraform / infrastructure automation, DevSecOps and policy as code.
+- SRE, observability, backup, disaster recovery, high availability and FinOps.
+- TOGAF ADM, ArchiMate-aligned viewpoints, architecture decisions, delivery roadmap and production-readiness gates.
 
-- [LinkedIn launch post — copy and paste](LINKEDIN-POST.md)
+**Important architecture boundary:** Workday, identity services and SAP support the provider's corporate operations. They are not a linear application chain and do not become the clinical transaction path. Hospital identity authenticates clinicians; the EHR handles clinical workflows; patient identity is separate.
 
-## Scope and status
+## Start with the complete case study
 
-This repository is an independent educational reference. It is not vendor-endorsed, a certification guide, or a claim that a generic design is production-ready. Provider services, controls, quotas and reference architectures change; validate designs against current official documentation and each organisation's requirements.
+👉 **[End-to-End Healthcare Software Enterprise — Reference Architecture](docs/healthcare-enterprise-reference-architecture.md)**
 
-The material is intended to evolve through architecture diagrams, implementation walkthroughs, Terraform examples, decision records and automated validation. Do not deploy examples into production without security, operational, cost and compliance review.
+This is the central practical example: business capabilities, system-of-record boundaries, architecture planes, user journeys, integration catalogue, data, network, security, implementation, operations and production gates.
 
-## Suggested learning path
+## Learning path
 
-1. Understand cloud foundations and landing-zone concepts.
-2. Learn each provider's framework and landing-zone approach.
-3. Compare common architecture capabilities across clouds.
-4. Apply the patterns to the hypothetical healthcare enterprise.
-5. Translate the target architecture into an implementation and operating model.
+1. Understand cloud foundations, landing zones and the framework stack.
+2. Compare Azure, AWS, Google Cloud and OCI foundation patterns.
+3. Study the end-to-end healthcare enterprise case study.
+4. Map the architecture to TOGAF ADM and ArchiMate viewpoints.
+5. Turn the target design into a provider-specific implementation backlog.
+6. Add tested Terraform modules, diagrams, ADRs and deployment walkthroughs as the repository evolves.
 
----
+## Repository contents
+
+- `docs/healthcare-enterprise-reference-architecture.md` — complete enterprise case-study blueprint.
+- `LINKEDIN-POST.md` — launch post ready to copy and paste.
+- Provider-specific learning modules and implementation examples will be expanded as they are validated.
+
+## Scope and quality statement
+
+This is an independent educational project. It is not vendor-endorsed, a certification guide, a compliance attestation, or a claim that generic architecture is production-ready. Cloud services and provider guidance change; verify current official documentation. Any real deployment requires customer-specific architecture, security, privacy, legal, clinical safety, capacity, resilience and operational validation.
 
 **Repository:** https://github.com/tripathies/cloud-foundations-masterclass
